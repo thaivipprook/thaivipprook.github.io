@@ -1,0 +1,237 @@
+body {
+    margin: 0;
+    background: url('casino-bg.jpg') no-repeat center/cover;
+    font-family: Arial, sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login-container, .register-container, .deposit-container {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.login-container h2, .register-container h2, .deposit-container h2 {
+    color: gold;
+    margin-bottom: 20px;
+}
+
+.login-container input, .register-container input, .deposit-container input {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+}
+
+.login-container button, .register-container button, .deposit-container button {
+    background: #d4af37;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.login-container button:hover, .register-container button:hover, .deposit-container button:hover {
+    background: #b8860b;
+}
+
+.login-container a, .register-container a {
+    color: #ffcc00;
+    text-decoration: none;
+}
+
+.login-container a:hover, .register-container a:hover {
+    text-decoration: underline;
+}
+
+.casino-table {
+    width: 90%;
+    max-width: 1200px;
+    background: rgba(0, 100, 0, 0.8);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+}
+
+.dealer-area {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+h1 {
+    color: gold;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.8);
+}
+
+.dice-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.dice {
+    width: 80px;
+    height: 80px;
+    background: white;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 2px solid #000;
+    transform-style: preserve-3d;
+}
+
+.rolling {
+    animation: roll 2s ease-in-out;
+}
+
+@keyframes roll {
+    0% { transform: translateY(0) rotateX(0deg) rotateY(0deg); }
+    50% { transform: translateY(-30px) rotateX(720deg) rotateY(720deg); }
+    100% { transform: translateY(0) rotateX(1440deg) rotateY(1440deg); }
+}
+
+.betting-table {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.bet-area {
+    width: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid gold;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+.bet-area p {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.bet-area span {
+    font-size: 16px;
+    color: #ffcc00;
+}
+
+.bet-options button {
+    background: #4CAF50; /* Màu xanh lá khi chưa chọn */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.bet-options button:hover {
+    background: #45a049;
+}
+
+.bet-options button.active {
+    background: #f44336; /* Màu đỏ khi chọn */
+}
+
+.bet-values button, #confirmBtn, #logoutBtn, #depositBtn {
+    background: #d4af37; /* Màu vàng cho nút số tiền, xác nhận, đăng xuất, nạp tiền */
+    color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.bet-values button:hover, #confirmBtn:hover, #logoutBtn:hover, #depositBtn:hover {
+    background: #b8860b;
+}
+
+.bet-values button:disabled, #confirmBtn:disabled {
+    background: #555;
+    cursor: not-allowed;
+}
+
+.player-area {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.timer {
+    font-size: 20px;
+    color: #ffcc00;
+    text-align: center;
+}
+
+.info {
+    text-align: center;
+}
+
+.history {
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.history ul {
+    list-style: none;
+    padding: 0;
+}
+
+.history li {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: white;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.popup-content button {
+    background: #d4af37;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
