@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tài Xỉu Sòng Bạc</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container" id="loginContainer">
+        <h2>Đăng Nhập</h2>
+        <input type="text" id="username" placeholder="Tên người dùng" />
+        <input type="password" id="password" placeholder="Mật khẩu" />
+        <button onclick="login()">Đăng Nhập</button>
+        <p id="loginMessage" style="color: red;"></p>
+        <p>Chưa có tài khoản? <a href="#" onclick="showRegister()">Đăng ký ngay</a></p>
+    </div>
+    <div class="register-container" id="registerContainer" style="display: none;">
+        <h2>Đăng Ký</h2>
+        <input type="text" id="regUsername" placeholder="Tên người dùng" />
+        <input type="password" id="regPassword" placeholder="Mật khẩu" />
+        <button onclick="register()">Đăng Ký</button>
+        <p id="registerMessage" style="color: red;"></p>
+        <p>Đã có tài khoản? <a href="#" onclick="showLogin()">Đăng nhập</a></p>
+    </div>
+    <div class="casino-table" id="gameContainer" style="display: none;">
+        <div class="dealer-area">
+            <h1>Tài Xỉu Sòng Bạc</h1>
+            <div class="dice-container" id="diceContainer">
+                <div class="dice" id="dice1">1</div>
+                <div class="dice" id="dice2">1</div>
+                <div class="dice" id="dice3">1</div>
+            </div>
+        </div>
+        <div class="betting-table">
+            <div class="bet-area">
+                <p>Đặt cược Tài (11-18) hoặc Xỉu (3-10):</p>
+                <div class="bet-options">
+                    <button onclick="setChoice('Tài')" id="taiBtn">Tài</button>
+                    <button onclick="setChoice('Xỉu')" id="xiuBtn">Xỉu</button>
+                </div>
+                <p>Số tiền cược: <span id="betAmount">0</span> VND</p>
+                <div class="bet-values">
+                    <button onclick="placeBet(10000)" id="bet10000">10.000</button>
+                    <button onclick="placeBet(50000)" id="bet50000">50.000</button>
+                    <button onclick="placeBet(100000)" id="bet100000">100.000</button>
+                    <button onclick="placeBet(500000)" id="bet500000">500.000</button>
+                </div>
+                <p>Đã đặt: <span id="betStatus">Chưa chọn</span></p>
+                <button onclick="confirmBet()" id="confirmBtn">Xác nhận</button>
+            </div>
+        </div>
+        <div class="player-area">
+            <div class="timer">
+                <p>Thời gian đặt cược: <span id="betCountdown">15</span> giây</p>
+                <p>Thời gian ván tiếp: <span id="gameCountdown">60</span> giây</p>
+            </div>
+            <div class="info">
+                <p>Số dư: <span id="balance">10.000.000</span> VND</p>
+                <p>Thắng/Thua: <span id="winRate">0/0</span></p>
+                <p>Kết quả: <span id="outcome"></span></p>
+                <button onclick="showDeposit()" id="depositBtn">Nạp Tiền</button>
+                <button onclick="logout()" id="logoutBtn">Đăng Xuất</button>
+            </div>
+            <div class="history">
+                <h3>Lịch Sử</h3>
+                <ul id="historyList"></ul>
+            </div>
+        </div>
+    </div>
+    <div class="deposit-container" id="depositContainer" style="display: none;">
+        <h2>Nạp Tiền</h2>
+        <p>Ngân hàng: Agribank</p>
+        <p>Số tài khoản: 0359220370</p>
+        <p>Vui lòng chuyển khoản đến tài khoản trên, sau đó nhập số tiền đã nạp:</p>
+        <input type="number" id="depositAmount" placeholder="Số tiền (VND)" min="0" />
+        <button onclick="deposit()">Xác Nhận Nạp</button>
+        <p id="depositMessage" style="color: red;"></p>
+        <button onclick="hideDeposit()">Quay Lại</button>
+    </div>
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span id="popupMessage"></span>
+            <button onclick="closePopup()">Đóng</button>
+        </div>
+    </div>
+    <audio id="diceSound" src="dice-shake.mp3"></audio>
+    <audio id="winSound" src="win.mp3"></audio>
+    <audio id="loseSound" src="lose.mp3"></audio>
+    <audio id="dealerVoice" src="dealer-start.mp3"></audio>
+    <script src="script.js"></script>
+</body>
+</html>
